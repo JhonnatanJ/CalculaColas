@@ -17,6 +17,6 @@ public class PICS {
     
     public void Spoiler(){
         System.out.println("Se muere Marco el fenix!!! :( ");
-        System.out.println("Es broma jaja pero si quieres no es broma (0.0)");
+        System.out.println(":p");
     }
 }
