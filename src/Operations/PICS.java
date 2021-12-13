@@ -11,4 +11,8 @@ package Operations;
  */
 public class PICS {
     
+    public void Hola(){
+        System.out.println("Hola Gloria :D ");
+    }
+    
 }

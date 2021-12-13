@@ -5,6 +5,8 @@
  */
 package calculadoracolas;
 
+import Operations.PICS;
+
 /**
  *
  * @author Jhonnatan
@@ -17,7 +19,8 @@ public class CalculadoraColas {
     public static void main(String[] args) {
         // TODO code application logic here
         
-        
+        PICS pics = new PICS();
+        pics.Hola();
         
     }
     
