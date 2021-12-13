@@ -21,6 +21,7 @@ public class CalculadoraColas {
         
         PICS pics = new PICS();
         pics.Hola();
+        pics.Spoiler();
         
     }
     
