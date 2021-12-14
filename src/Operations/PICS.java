@@ -17,7 +17,7 @@ public class PICS {
         
         return respuesta;
     }
-    
+  
     public double SistemaVacio(double lambda, double mu){
         double respuesta = 0;
         respuesta = 1-(lambda/mu);
