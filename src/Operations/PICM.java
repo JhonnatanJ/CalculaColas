@@ -11,4 +11,8 @@ package Operations;
  */
 public class PICM {
     
+    public void Formula(){
+        //aqui va la formula jajaja...
+    }
+    
 }
