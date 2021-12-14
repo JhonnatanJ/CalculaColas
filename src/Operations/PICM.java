@@ -11,7 +11,12 @@ package Operations;
  */
 public class PICM {
             
-       
+       public double Estabilidad(double lambda, double mu, int numServidores){
+           double respuesta = 0;
+           respuesta = lambda / (mu * numServidores);
+           
+           return respuesta;
+       }
         
         
       
