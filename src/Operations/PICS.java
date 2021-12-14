@@ -11,12 +11,17 @@ package Operations;
  */
 public class PICS {
     
-    public void Hola(){
-        System.out.println("Hola Gloria :D ");
+    public double Estabilidad(double lambda, double mu){
+        double respuesta = 0;
+        respuesta = lambda/mu;
+        
+        return respuesta;
     }
-    
-    public void Spoiler(){
-        System.out.println("Se muere Marco el fenix!!! :( ");
-        System.out.println(":p");
-    }
+  
+    public double SistemaVacio(double lambda, double mu){
+        double respuesta = 0;
+        respuesta = 1-(lambda/mu);
+
+        return respuesta;
+    } 
 }
