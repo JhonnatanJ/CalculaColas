@@ -135,6 +135,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="M/M/k/M/M"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPFCMActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnPICM">
           <Properties>
@@ -143,6 +146,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="M/M/k"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPICMActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnPFCS">
           <Properties>
@@ -151,6 +157,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="M/M/1/M/M"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPFCSActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

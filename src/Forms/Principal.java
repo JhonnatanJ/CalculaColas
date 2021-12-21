@@ -12,7 +12,7 @@ import java.awt.BorderLayout;
  * @author Jhonnatan
  */
 public class Principal extends javax.swing.JFrame {
-    //PICSM picsm = new PICSM();
+    //PICSM picsm = new pnlPICSM();
     /**
      * Creates new form Principal
      */
@@ -76,12 +76,27 @@ public class Principal extends javax.swing.JFrame {
 
         btnPFCM.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnPFCM.setText("M/M/k/M/M");
+        btnPFCM.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPFCMActionPerformed(evt);
+            }
+        });
 
         btnPICM.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnPICM.setText("M/M/k");
+        btnPICM.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPICMActionPerformed(evt);
+            }
+        });
 
         btnPFCS.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnPFCS.setText("M/M/1/M/M");
+        btnPFCS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPFCSActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlOpcionesLayout = new javax.swing.GroupLayout(pnlOpciones);
         pnlOpciones.setLayout(pnlOpcionesLayout);
@@ -147,7 +162,7 @@ public class Principal extends javax.swing.JFrame {
 
     private void btnPICSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPICSActionPerformed
         // TODO add your handling code here:
-        PICSM picsm = new PICSM();
+        pnlPICSM picsm = new pnlPICSM();
         picsm.setSize(982,593);
         picsm.setLocation(8, 8);
         pnlContenedor.removeAll();
@@ -158,7 +173,7 @@ public class Principal extends javax.swing.JFrame {
 
     private void btnPICSMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPICSMouseClicked
         // TODO add your handling code here:
-        PICSM picsm = new PICSM();
+        pnlPICSM picsm = new pnlPICSM();
         picsm.setSize(982,593);
         picsm.setLocation(8, 8);
         pnlContenedor.removeAll();
@@ -166,6 +181,39 @@ public class Principal extends javax.swing.JFrame {
         pnlContenedor.revalidate();
         pnlContenedor.repaint();
     }//GEN-LAST:event_btnPICSMouseClicked
+
+    private void btnPICMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPICMActionPerformed
+        // TODO add your handling code here:
+        pnlPICM picm = new pnlPICM();
+        picm.setSize(982,593);
+        picm.setLocation(8, 8);
+        pnlContenedor.removeAll();
+        pnlContenedor.add(picm,BorderLayout.CENTER);
+        pnlContenedor.revalidate();
+        pnlContenedor.repaint();
+    }//GEN-LAST:event_btnPICMActionPerformed
+
+    private void btnPFCSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPFCSActionPerformed
+        // TODO add your handling code here:
+        pnlPFCS pfcs = new pnlPFCS();
+        pfcs.setSize(982,593);
+        pfcs.setLocation(8, 8);
+        pnlContenedor.removeAll();
+        pnlContenedor.add(pfcs,BorderLayout.CENTER);
+        pnlContenedor.revalidate();
+        pnlContenedor.repaint();
+    }//GEN-LAST:event_btnPFCSActionPerformed
+
+    private void btnPFCMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPFCMActionPerformed
+        // TODO add your handling code here:
+        pnlPFCM pfcm = new pnlPFCM();
+        pfcm.setSize(982,593);
+        pfcm.setLocation(8, 8);
+        pnlContenedor.removeAll();
+        pnlContenedor.add(pfcm,BorderLayout.CENTER);
+        pnlContenedor.revalidate();
+        pnlContenedor.repaint();
+    }//GEN-LAST:event_btnPFCMActionPerformed
 
     /**
      * @param args the command line arguments
