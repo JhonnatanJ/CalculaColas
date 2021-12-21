@@ -5,17 +5,21 @@
  */
 package Forms;
 
+import Operations.PFCS;
+
 /**
  *
  * @author Jhonnatan
  */
-public class PICSM extends javax.swing.JPanel {
+public class pnlPFCS extends javax.swing.JPanel {
 
     /**
-     * Creates new form PICSM
+     * Creates new form pnlPFCS
      */
-    public PICSM() {
+    public pnlPFCS() {
         initComponents();
+        txtRServidores.setText("1");
+        txtRServidores.enable(false);
     }
 
     /**
@@ -29,19 +33,16 @@ public class PICSM extends javax.swing.JPanel {
 
         pnl = new javax.swing.JPanel();
         lblLambda = new javax.swing.JLabel();
-        txtRLambda = new javax.swing.JTextField();
         lblMu = new javax.swing.JLabel();
         txtRMu = new javax.swing.JTextField();
         txtRServidores = new javax.swing.JTextField();
         lblServidores = new javax.swing.JLabel();
-        cbUnidad = new javax.swing.JComboBox<>();
-        lblUnidad = new javax.swing.JLabel();
-        lblConverir = new javax.swing.JLabel();
-        cbConvertir = new javax.swing.JComboBox<>();
+        btnCalcularG = new javax.swing.JButton();
+        txtRLambda = new javax.swing.JTextField();
+        btnLimpiar = new javax.swing.JButton();
+        lblPoblacion = new javax.swing.JLabel();
+        txtRPoblacion = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
-        pnlEstabilidad = new javax.swing.JPanel();
-        lblRo = new javax.swing.JLabel();
-        lblREstabilidad = new javax.swing.JLabel();
         pnlPn = new javax.swing.JPanel();
         lblP0 = new javax.swing.JLabel();
         lblRP0 = new javax.swing.JLabel();
@@ -49,8 +50,12 @@ public class PICSM extends javax.swing.JPanel {
         lbln = new javax.swing.JLabel();
         btnCalcular = new javax.swing.JButton();
         cbOpcion = new javax.swing.JComboBox<>();
-        lblP1 = new javax.swing.JLabel();
-        lblRP1 = new javax.swing.JLabel();
+        lblPnSis = new javax.swing.JLabel();
+        lblRPnSis = new javax.swing.JLabel();
+        lblRPnCola = new javax.swing.JLabel();
+        lblPnCola = new javax.swing.JLabel();
+        lblSistema = new javax.swing.JLabel();
+        lblCola = new javax.swing.JLabel();
         pnlClientes = new javax.swing.JPanel();
         lblL = new javax.swing.JLabel();
         lblRL = new javax.swing.JLabel();
@@ -71,8 +76,6 @@ public class PICSM extends javax.swing.JPanel {
         lblLambda.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblLambda.setText("Lambda:");
 
-        txtRLambda.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-
         lblMu.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblMu.setText("Mu:");
 
@@ -83,99 +86,96 @@ public class PICSM extends javax.swing.JPanel {
         lblServidores.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblServidores.setText("Servidores:");
 
-        cbUnidad.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        cbUnidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "clientes/hora", "clientes/dia", "clientes/minuto", "clientes/segundo" }));
+        btnCalcularG.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnCalcularG.setText("CALCULAR");
+        btnCalcularG.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCalcularGMouseClicked(evt);
+            }
+        });
+        btnCalcularG.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCalcularGActionPerformed(evt);
+            }
+        });
 
-        lblUnidad.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        lblUnidad.setText("Unidad:");
+        txtRLambda.setName(""); // NOI18N
+        txtRLambda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtRLambdaActionPerformed(evt);
+            }
+        });
 
-        lblConverir.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        lblConverir.setText("Convertir a:");
+        btnLimpiar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnLimpiar.setText("LIMPIAR");
+        btnLimpiar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnLimpiarMouseClicked(evt);
+            }
+        });
+        btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimpiarActionPerformed(evt);
+            }
+        });
 
-        cbConvertir.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        cbConvertir.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ninguna", "clientes/hora", "clientes/dia", "clientes/minuto", "clientes/segundo" }));
+        lblPoblacion.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblPoblacion.setText("Población:");
+
+        txtRPoblacion.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
         javax.swing.GroupLayout pnlLayout = new javax.swing.GroupLayout(pnl);
         pnl.setLayout(pnlLayout);
         pnlLayout.setHorizontalGroup(
             pnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblLambda)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtRLambda, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42)
-                .addComponent(lblMu)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtRMu, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50)
-                .addComponent(lblServidores)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtRServidores, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
-                .addComponent(lblUnidad)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cbUnidad, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(49, 49, 49)
-                .addComponent(lblConverir)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(cbConvertir, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(22, 22, 22))
+                .addGroup(pnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlLayout.createSequentialGroup()
+                        .addGap(306, 306, 306)
+                        .addComponent(btnCalcularG, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(40, 40, 40)
+                        .addComponent(btnLimpiar, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnlLayout.createSequentialGroup()
+                        .addGap(124, 124, 124)
+                        .addComponent(lblLambda)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtRLambda, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(56, 56, 56)
+                        .addComponent(lblMu)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtRMu, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(50, 50, 50)
+                        .addComponent(lblServidores)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtRServidores, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(58, 58, 58)
+                        .addComponent(lblPoblacion)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtRPoblacion, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlLayout.setVerticalGroup(
             pnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlLayout.createSequentialGroup()
-                .addGroup(pnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(pnlLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(pnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cbUnidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(pnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(cbConvertir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(lblConverir))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(pnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblLambda)
-                            .addComponent(txtRLambda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblMu)
-                            .addComponent(txtRMu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblServidores)
-                            .addComponent(txtRServidores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblUnidad))))
-                .addGap(0, 31, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(pnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblPoblacion)
+                        .addComponent(txtRPoblacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblLambda)
+                        .addComponent(lblMu)
+                        .addComponent(txtRMu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblServidores)
+                        .addComponent(txtRServidores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtRLambda, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addGroup(pnlLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnCalcularG)
+                    .addComponent(btnLimpiar)))
         );
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "RESULTADOS", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 14), new java.awt.Color(102, 153, 255))); // NOI18N
-
-        pnlEstabilidad.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Estabilidad", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 14), new java.awt.Color(102, 153, 255))); // NOI18N
-
-        lblRo.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
-        lblRo.setText("p = ");
-
-        lblREstabilidad.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        lblREstabilidad.setText("Respuesta");
-
-        javax.swing.GroupLayout pnlEstabilidadLayout = new javax.swing.GroupLayout(pnlEstabilidad);
-        pnlEstabilidad.setLayout(pnlEstabilidadLayout);
-        pnlEstabilidadLayout.setHorizontalGroup(
-            pnlEstabilidadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlEstabilidadLayout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addComponent(lblRo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblREstabilidad)
-                .addContainerGap(35, Short.MAX_VALUE))
-        );
-        pnlEstabilidadLayout.setVerticalGroup(
-            pnlEstabilidadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlEstabilidadLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(pnlEstabilidadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblRo)
-                    .addComponent(lblREstabilidad))
-                .addContainerGap())
-        );
 
         pnlPn.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Probabilidad de n clientes", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 14), new java.awt.Color(102, 153, 255))); // NOI18N
 
@@ -192,28 +192,37 @@ public class PICSM extends javax.swing.JPanel {
 
         btnCalcular.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btnCalcular.setText("Calcular");
+        btnCalcular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCalcularActionPerformed(evt);
+            }
+        });
 
         cbOpcion.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        cbOpcion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Exactamente", "Máximo", "Al menos" }));
+        cbOpcion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Exactamente", "Máximo", "Almenos" }));
 
-        lblP1.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
-        lblP1.setText("Pn = ");
+        lblPnSis.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
+        lblPnSis.setText("Pn = ");
 
-        lblRP1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        lblRP1.setText("Respuesta");
+        lblRPnSis.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblRPnSis.setText("Respuesta");
+
+        lblRPnCola.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblRPnCola.setText("Respuesta");
+
+        lblPnCola.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
+        lblPnCola.setText("Pn = ");
+
+        lblSistema.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblSistema.setText("Sistema:");
+
+        lblCola.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblCola.setText("Cola:");
 
         javax.swing.GroupLayout pnlPnLayout = new javax.swing.GroupLayout(pnlPn);
         pnlPn.setLayout(pnlPnLayout);
         pnlPnLayout.setHorizontalGroup(
             pnlPnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlPnLayout.createSequentialGroup()
-                .addGap(0, 10, Short.MAX_VALUE)
-                .addComponent(cbOpcion, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(lbln)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtn, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26))
             .addGroup(pnlPnLayout.createSequentialGroup()
                 .addGroup(pnlPnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlPnLayout.createSequentialGroup()
@@ -222,14 +231,31 @@ public class PICSM extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblRP0))
                     .addGroup(pnlPnLayout.createSequentialGroup()
-                        .addGap(54, 54, 54)
-                        .addComponent(lblP1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblRP1))
-                    .addGroup(pnlPnLayout.createSequentialGroup()
                         .addGap(67, 67, 67)
                         .addComponent(btnCalcular)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlPnLayout.createSequentialGroup()
+                .addGap(0, 10, Short.MAX_VALUE)
+                .addGroup(pnlPnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(pnlPnLayout.createSequentialGroup()
+                        .addComponent(lblCola)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblPnCola)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblRPnCola))
+                    .addGroup(pnlPnLayout.createSequentialGroup()
+                        .addComponent(lblSistema)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblPnSis)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblRPnSis))
+                    .addGroup(pnlPnLayout.createSequentialGroup()
+                        .addComponent(cbOpcion, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(lbln)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtn, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(26, 26, 26))
         );
         pnlPnLayout.setVerticalGroup(
             pnlPnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -245,11 +271,17 @@ public class PICSM extends javax.swing.JPanel {
                     .addComponent(txtn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
                 .addComponent(btnCalcular, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38)
+                .addGap(42, 42, 42)
                 .addGroup(pnlPnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblP1)
-                    .addComponent(lblRP1))
-                .addContainerGap(77, Short.MAX_VALUE))
+                    .addComponent(lblPnSis)
+                    .addComponent(lblRPnSis)
+                    .addComponent(lblSistema))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(pnlPnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblPnCola)
+                    .addComponent(lblRPnCola)
+                    .addComponent(lblCola))
+                .addGap(26, 26, 26))
         );
 
         pnlClientes.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Clientes (L)", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 14), new java.awt.Color(102, 153, 255))); // NOI18N
@@ -300,7 +332,7 @@ public class PICSM extends javax.swing.JPanel {
                 .addGroup(pnlClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblL)
                     .addComponent(lblRL))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
                 .addGroup(pnlClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblLq)
                     .addComponent(lblRLq))
@@ -359,7 +391,7 @@ public class PICSM extends javax.swing.JPanel {
                 .addGroup(pnlTiempoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblW)
                     .addComponent(lblRW))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 111, Short.MAX_VALUE)
                 .addGroup(pnlTiempoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblWq)
                     .addComponent(lblRWq))
@@ -376,29 +408,22 @@ public class PICSM extends javax.swing.JPanel {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pnlPn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(pnlEstabilidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(pnlPn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(43, 43, 43)
                 .addComponent(pnlClientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(72, 72, 72)
+                .addGap(45, 45, 45)
                 .addComponent(pnlTiempo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(44, 44, 44))
+                .addContainerGap(118, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pnlTiempo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(pnlEstabilidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(pnlPn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(pnlClientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(pnlClientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pnlPn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
+            .addComponent(pnlTiempo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -408,8 +433,8 @@ public class PICSM extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pnl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pnl, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -417,50 +442,120 @@ public class PICSM extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(pnl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnCalcularGMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCalcularGMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCalcularGMouseClicked
+
+    private void btnCalcularGActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcularGActionPerformed
+        // TODO add your handling code here:
+        PFCS pfcs = new PFCS();
+
+        lblRP0.setText(String.valueOf(pfcs.SistemaVacio(Double.parseDouble(txtRPoblacion.getText()),Double.parseDouble(txtRMu.getText()),Double.parseDouble(txtRLambda.getText()))));
+
+        //         CLIENTES
+        lblRL.setText(String.valueOf(pfcs.ClientesL(Double.parseDouble(txtRPoblacion.getText()),Double.parseDouble(txtRLambda.getText()),Double.parseDouble(txtRMu.getText()))));
+        lblRLq.setText(String.valueOf(pfcs.ClientesColaLq(Double.parseDouble(txtRPoblacion.getText()),Double.parseDouble(txtRLambda.getText()),Double.parseDouble(txtRMu.getText()))));
+        lblRLn.setText(String.valueOf(pfcs.ClientesLn(Double.parseDouble(txtRPoblacion.getText()),Double.parseDouble(txtRLambda.getText()),Double.parseDouble(txtRMu.getText()))));
+
+        //TIEMPO
+        lblRW.setText(String.valueOf(pfcs.TiempoW(Double.parseDouble(txtRPoblacion.getText()),Double.parseDouble(txtRLambda.getText()),Double.parseDouble(txtRMu.getText()))));
+        lblRWq.setText(String.valueOf(pfcs.TiempoWq(Double.parseDouble(txtRPoblacion.getText()),Double.parseDouble(txtRLambda.getText()),Double.parseDouble(txtRMu.getText()))));
+        lblRWn.setText(String.valueOf(pfcs.TiempoWn(Double.parseDouble(txtRPoblacion.getText()),Double.parseDouble(txtRLambda.getText()),Double.parseDouble(txtRMu.getText()))));
+
+    }//GEN-LAST:event_btnCalcularGActionPerformed
+
+    private void txtRLambdaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRLambdaActionPerformed
+
+    }//GEN-LAST:event_txtRLambdaActionPerformed
+
+    private void btnLimpiarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLimpiarMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnLimpiarMouseClicked
+
+    private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
+        // TODO add your handling code here:
+        LimpiarCampos();
+    }//GEN-LAST:event_btnLimpiarActionPerformed
+
+    private void btnCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcularActionPerformed
+        PFCS pfcs = new PFCS();
+        if("Exactamente".equals((String)cbOpcion.getSelectedItem())){
+            lblRPnSis.setText(String.valueOf(pfcs.NclientExac(Double.parseDouble(txtn.getText()),Double.parseDouble(txtRPoblacion.getText()), Double.parseDouble(txtRMu.getText()),Double.parseDouble(txtRLambda.getText()))));
+            lblRPnCola.setText(String.valueOf(pfcs.NclientExacCola(Double.parseDouble(txtn.getText()),Double.parseDouble(txtRPoblacion.getText()), Double.parseDouble(txtRMu.getText()),Double.parseDouble(txtRLambda.getText()))));
+        }
+
+        if("Máximo".equals((String)cbOpcion.getSelectedItem())){
+            lblRPnSis.setText(String.valueOf(pfcs.NclientMax(Double.parseDouble(txtn.getText()),Double.parseDouble(txtRPoblacion.getText()), Double.parseDouble(txtRMu.getText()),Double.parseDouble(txtRLambda.getText()))));
+            lblRPnCola.setText(String.valueOf(pfcs.NclientMaxCola(Double.parseDouble(txtn.getText()),Double.parseDouble(txtRPoblacion.getText()), Double.parseDouble(txtRMu.getText()),Double.parseDouble(txtRLambda.getText()))));
+        }
+
+        if("Almenos".equals((String)cbOpcion.getSelectedItem())){
+            lblRPnSis.setText(String.valueOf(pfcs.NclientAL(Double.parseDouble(txtn.getText()),Double.parseDouble(txtRPoblacion.getText()), Double.parseDouble(txtRMu.getText()),Double.parseDouble(txtRLambda.getText()))));
+            lblRPnCola.setText(String.valueOf(pfcs.NclientALCola(Double.parseDouble(txtn.getText()),Double.parseDouble(txtRPoblacion.getText()), Double.parseDouble(txtRMu.getText()),Double.parseDouble(txtRLambda.getText()))));
+        }
+    }//GEN-LAST:event_btnCalcularActionPerformed
+
+    public void LimpiarCampos(){
+        lblRP0.setText("Respuesta");
+        lblRPnSis.setText("Respuesta");
+        lblRPnCola.setText("Respuesta");
+        lblRL.setText("Respuesta");
+        lblRLn.setText("Respuesta");
+        lblRLq.setText("Respuesta");
+        lblRW.setText("Respuesta");
+        lblRWn.setText("Respuesta");
+        lblRWq.setText("Respuesta");
+        txtn.setText("");
+        txtRLambda.setText("");
+        txtRMu.setText("");
+        txtRServidores.setText("1");
+        txtRPoblacion.setText("");
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCalcular;
-    private javax.swing.JComboBox<String> cbConvertir;
+    private javax.swing.JButton btnCalcularG;
+    private javax.swing.JButton btnLimpiar;
     private javax.swing.JComboBox<String> cbOpcion;
-    private javax.swing.JComboBox<String> cbUnidad;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JLabel lblConverir;
+    private javax.swing.JLabel lblCola;
     private javax.swing.JLabel lblL;
     private javax.swing.JLabel lblLambda;
     private javax.swing.JLabel lblLn;
     private javax.swing.JLabel lblLq;
     private javax.swing.JLabel lblMu;
     private javax.swing.JLabel lblP0;
-    private javax.swing.JLabel lblP1;
-    private javax.swing.JLabel lblREstabilidad;
+    private javax.swing.JLabel lblPnCola;
+    private javax.swing.JLabel lblPnSis;
+    private javax.swing.JLabel lblPoblacion;
     private javax.swing.JLabel lblRL;
     private javax.swing.JLabel lblRLn;
     private javax.swing.JLabel lblRLq;
     private javax.swing.JLabel lblRP0;
-    private javax.swing.JLabel lblRP1;
+    private javax.swing.JLabel lblRPnCola;
+    private javax.swing.JLabel lblRPnSis;
     private javax.swing.JLabel lblRW;
     private javax.swing.JLabel lblRWn;
     private javax.swing.JLabel lblRWq;
-    private javax.swing.JLabel lblRo;
     private javax.swing.JLabel lblServidores;
-    private javax.swing.JLabel lblUnidad;
+    private javax.swing.JLabel lblSistema;
     private javax.swing.JLabel lblW;
     private javax.swing.JLabel lblWn;
     private javax.swing.JLabel lblWq;
     private javax.swing.JLabel lbln;
     private javax.swing.JPanel pnl;
     private javax.swing.JPanel pnlClientes;
-    private javax.swing.JPanel pnlEstabilidad;
     private javax.swing.JPanel pnlPn;
     private javax.swing.JPanel pnlTiempo;
     private javax.swing.JTextField txtRLambda;
     private javax.swing.JTextField txtRMu;
+    private javax.swing.JTextField txtRPoblacion;
     private javax.swing.JTextField txtRServidores;
     private javax.swing.JTextField txtn;
     // End of variables declaration//GEN-END:variables
