@@ -5,12 +5,14 @@
  */
 package Forms;
 
+import java.awt.BorderLayout;
+
 /**
  *
  * @author Jhonnatan
  */
 public class Principal extends javax.swing.JFrame {
-
+    //PICSM picsm = new PICSM();
     /**
      * Creates new form Principal
      */
@@ -61,6 +63,16 @@ public class Principal extends javax.swing.JFrame {
 
         btnPICS.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnPICS.setText("M/M/1");
+        btnPICS.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnPICSMouseClicked(evt);
+            }
+        });
+        btnPICS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPICSActionPerformed(evt);
+            }
+        });
 
         btnPFCM.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnPFCM.setText("M/M/k/M/M");
@@ -130,7 +142,30 @@ public class Principal extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnPICSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPICSActionPerformed
+        // TODO add your handling code here:
+        PICSM picsm = new PICSM();
+        picsm.setSize(982,593);
+        picsm.setLocation(8, 8);
+        pnlContenedor.removeAll();
+        pnlContenedor.add(picsm,BorderLayout.CENTER);
+        pnlContenedor.revalidate();
+        pnlContenedor.repaint();
+    }//GEN-LAST:event_btnPICSActionPerformed
+
+    private void btnPICSMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPICSMouseClicked
+        // TODO add your handling code here:
+        PICSM picsm = new PICSM();
+        picsm.setSize(982,593);
+        picsm.setLocation(8, 8);
+        pnlContenedor.removeAll();
+        pnlContenedor.add(picsm,BorderLayout.CENTER);
+        pnlContenedor.revalidate();
+        pnlContenedor.repaint();
+    }//GEN-LAST:event_btnPICSMouseClicked
 
     /**
      * @param args the command line arguments
