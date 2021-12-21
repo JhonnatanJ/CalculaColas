@@ -485,15 +485,15 @@ public class pnlPICM extends javax.swing.JPanel {
         lblRP0.setText(String.valueOf(picm.SistemaVacio(Double.parseDouble(txtRLambda.getText()),Double.parseDouble(txtRMu.getText()), Double.parseDouble(txtRServidores.getText()))));
 
         //         CLIENTES
-        lblRL.setText(String.valueOf(pics.ClientesL(Double.parseDouble(txtRLambda.getText()),Double.parseDouble(txtRMu.getText()))));
-        lblRLq.setText(String.valueOf(pics.ClientesLq(Double.parseDouble(txtRLambda.getText()),Double.parseDouble(txtRMu.getText()))));
-        lblRLn.setText(String.valueOf(pics.ClientesLn(Double.parseDouble(txtRLambda.getText()),Double.parseDouble(txtRMu.getText()))));
-
+        lblRL.setText(String.valueOf(picm.ClientesL(Double.parseDouble(txtRLambda.getText()),Double.parseDouble(txtRMu.getText()), Double.parseDouble(txtRServidores.getText()))));
+        lblRLq.setText(String.valueOf(picm.ClientesLq(Double.parseDouble(txtRLambda.getText()),Double.parseDouble(txtRMu.getText()), Double.parseDouble(txtRServidores.getText()))));
+        lblRLn.setText(String.valueOf(picm.ClientesLn(Double.parseDouble(txtRLambda.getText()),Double.parseDouble(txtRMu.getText()), Double.parseDouble(txtRServidores.getText()))));
+        
         //TIEMPO
-        lblRW.setText(String.valueOf(pics.TiempoW(Double.parseDouble(txtRLambda.getText()),Double.parseDouble(txtRMu.getText()))));
-        lblRWq.setText(String.valueOf(pics.TiempoWq(Double.parseDouble(txtRLambda.getText()),Double.parseDouble(txtRMu.getText()))));
-        lblRWn.setText(String.valueOf(pics.TiempoWn(Double.parseDouble(txtRLambda.getText()),Double.parseDouble(txtRMu.getText()))));
-
+        lblRW.setText(String.valueOf(picm.TiempoW(Double.parseDouble(txtRLambda.getText()),Double.parseDouble(txtRMu.getText()), Double.parseDouble(txtRServidores.getText()))));
+        lblRWq.setText(String.valueOf(picm.TiempoWq(Double.parseDouble(txtRLambda.getText()),Double.parseDouble(txtRMu.getText()), Double.parseDouble(txtRServidores.getText()))));
+        lblRWn.setText(String.valueOf(picm.TiempoWn(Double.parseDouble(txtRLambda.getText()),Double.parseDouble(txtRMu.getText()), Double.parseDouble(txtRServidores.getText()))));
+        
     }//GEN-LAST:event_btnCalcularGActionPerformed
 
     private void txtRLambdaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRLambdaActionPerformed
@@ -512,19 +512,20 @@ public class pnlPICM extends javax.swing.JPanel {
     private void btnCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcularActionPerformed
         PICM picm = new PICM();
         PICS pics = new PICS();
+        //////en el sistema
         if("Exactamente".equals((String)cbOpcion.getSelectedItem())){
             lblRPnSis.setText(String.valueOf(picm.ExacClienSis(Double.parseDouble(txtRLambda.getText()),Double.parseDouble(txtRMu.getText()), Double.parseDouble(txtRServidores.getText()),Double.parseDouble(txtn.getText()))));
-            lblRPnCola.setText(String.valueOf(pics.NclientesExacCola(Double.parseDouble(txtRLambda.getText()),Double.parseDouble(txtRMu.getText()),Double.parseDouble(txtn.getText()))));
+            lblRPnCola.setText(String.valueOf(picm.ExaClienCola(Double.parseDouble(txtRLambda.getText()),Double.parseDouble(txtRMu.getText()),Double.parseDouble(txtRServidores.getText()),Double.parseDouble(txtn.getText()))));
         }
 
         if("Máximo".equals((String)cbOpcion.getSelectedItem())){
             lblRPnSis.setText(String.valueOf(picm.MaxClienSis(Double.parseDouble(txtRLambda.getText()),Double.parseDouble(txtRMu.getText()), Double.parseDouble(txtRServidores.getText()),Double.parseDouble(txtn.getText()))));
-            lblRPnCola.setText(String.valueOf(pics.NclienteMaxCola(Double.parseDouble(txtRLambda.getText()),Double.parseDouble(txtRMu.getText()),Double.parseDouble(txtn.getText()))));
+            lblRPnCola.setText(String.valueOf(picm.MaxClienCola(Double.parseDouble(txtRLambda.getText()),Double.parseDouble(txtRMu.getText()), Double.parseDouble(txtRServidores.getText()),Double.parseDouble(txtn.getText()))));
         }
 
         if("Almenos".equals((String)cbOpcion.getSelectedItem())){
             lblRPnSis.setText(String.valueOf(picm.AlClienSis(Double.parseDouble(txtRLambda.getText()),Double.parseDouble(txtRMu.getText()),Double.parseDouble(txtRServidores.getText()),Double.parseDouble(txtn.getText()))));
-            lblRPnCola.setText(String.valueOf(pics.NclientesAlCola(Double.parseDouble(txtRLambda.getText()),Double.parseDouble(txtRMu.getText()),Double.parseDouble(txtn.getText()))));
+            lblRPnCola.setText(String.valueOf(picm.AlClienCola(Double.parseDouble(txtRLambda.getText()),Double.parseDouble(txtRMu.getText()),Double.parseDouble(txtRServidores.getText()),Double.parseDouble(txtn.getText()))));
         }
     }//GEN-LAST:event_btnCalcularActionPerformed
 
