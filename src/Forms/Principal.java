@@ -54,7 +54,7 @@ public class Principal extends javax.swing.JFrame {
             .addGroup(pnlTituloLayout.createSequentialGroup()
                 .addGap(389, 389, 389)
                 .addComponent(lblTitulo)
-                .addContainerGap(389, Short.MAX_VALUE))
+                .addContainerGap(446, Short.MAX_VALUE))
         );
         pnlTituloLayout.setVerticalGroup(
             pnlTituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

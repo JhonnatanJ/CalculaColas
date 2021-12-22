@@ -10,14 +10,22 @@ package Operations;
  * @author Jhonnatan
  */
 public class PICM {
-            
-       public double Estabilidad(double lambda, double mu, double k){
-           double respuesta = 0;
-           respuesta = lambda / (mu * k);
-           
-           return respuesta;
-       }
-       ////////Po SISTEMA VACIO
+        
+    public double factorial (double numero) {
+        if (numero==0)
+        return 1;
+        else
+        return numero * factorial(numero-1);
+    }    
+    
+    public double Estabilidad(double lambda, double mu, double k){
+        double respuesta = 0;
+        respuesta = lambda / (mu * k);
+
+        return respuesta;
+    }    
+    
+       //////Po SISTEMA VACIO
     public double SistemaVacio(double lambda, double mu, double k){
         PICM llamada=new PICM();
     double respuesta=0;
