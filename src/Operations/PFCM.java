@@ -5,9 +5,6 @@
  */
 package Operations;
 
-import java.math.BigDecimal;
-import java.math.RoundingMode;
-import java.text.DecimalFormat;
 
 /**
  *
@@ -149,19 +146,20 @@ public class PFCM {
     }
     
     //PROBABILIDAD DE ESPERAR
-    public double ProbEsperar(double n, double k, double m, double mu, double lambda){
+    public double ProbEsperar(double k, double m, double mu, double lambda){
         double respuesta = 0;
         double sum = 0;
         double P0 = SistemaVacio(k,m,mu,lambda);
         sum += P0;
         for(int i=1;i<=(k-1);i++){
-            if(n<=k){            
-                sum += ((P0)*((factorial(m))/(factorial(m-n)*(factorial(n))))*(Math.pow((lambda/mu),n)));
-            }
-
-            if(n>k){
-                sum += (P0*((factorial(m))/((factorial((m-n)))*(factorial(k))*(Math.pow(k,(n-k)))))*(Math.pow((lambda/mu),n)));
-            }
+            sum += ((P0)*((factorial(m))/(factorial(m-i)*(factorial(i))))*(Math.pow((lambda/mu),i)));
+//            if(n<=k){            
+//                
+//            }
+//
+//            if(n>k){
+//                sum += (P0*((factorial(m))/((factorial((m-n)))*(factorial(k))*(Math.pow(k,(n-k)))))*(Math.pow((lambda/mu),n)));
+//            }
         }
         
         respuesta = 1 - sum;
@@ -170,9 +168,9 @@ public class PFCM {
     }
     
     //PROBABILIDAD DE NO ESPERAR
-    public double ProbNoEsperar(double n, double k, double m, double mu, double lambda){
+    public double ProbNoEsperar(double k, double m, double mu, double lambda){
         double respuesta;
-        double espera = ProbEsperar(n,k,m,mu,lambda);
+        double espera = ProbEsperar(k,m,mu,lambda);
         respuesta = 1 - espera;
         
         return respuesta;
@@ -213,7 +211,7 @@ public class PFCM {
     
     public double ClientesLn(double k, double m, double mu, double lambda) {
         double respuesta = 0;
-        respuesta = ((ClientesLq(k,m,mu,lambda))/(ProbEsperar(k,k,m,mu,lambda)));       
+        respuesta = ((ClientesLq(k,m,mu,lambda))/(ProbEsperar(k,m,mu,lambda)));       
         
         return respuesta;
     }
@@ -239,7 +237,7 @@ public class PFCM {
     public double TiempoWn(double k, double m, double mu, double lambda){
         double respuesta = 0;
         
-        respuesta = ((TiempoWq(k,m,mu,lambda))/(ProbEsperar(k,k,m,mu,lambda)));        
+        respuesta = ((TiempoWq(k,m,mu,lambda))/(ProbEsperar(k,m,mu,lambda)));        
         
         return respuesta;
     }

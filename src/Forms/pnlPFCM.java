@@ -491,8 +491,10 @@ public class pnlPFCM extends javax.swing.JPanel {
         // TODO add your handling code here:
         PFCM pfcm = new PFCM();
         lblRP0.setText(String.valueOf(pfcm.SistemaVacio(Double.parseDouble(txtRServidores.getText()),Double.parseDouble(txtRPoblacion.getText()),Double.parseDouble(txtRMu.getText()),Double.parseDouble(txtRLambda.getText()))));
-
-                 //CLIENTES
+        lblRPe.setText(String.valueOf(pfcm.ProbEsperar(Double.parseDouble(txtRServidores.getText()),Double.parseDouble(txtRPoblacion.getText()),Double.parseDouble(txtRMu.getText()),Double.parseDouble(txtRLambda.getText()))));
+        lblRPne.setText(String.valueOf(pfcm.ProbNoEsperar(Double.parseDouble(txtRServidores.getText()),Double.parseDouble(txtRPoblacion.getText()),Double.parseDouble(txtRMu.getText()),Double.parseDouble(txtRLambda.getText()))));
+        
+        //CLIENTES
         lblRL.setText(String.valueOf(pfcm.ClientesL(Double.parseDouble(txtRServidores.getText()),Double.parseDouble(txtRPoblacion.getText()),Double.parseDouble(txtRMu.getText()),Double.parseDouble(txtRLambda.getText()))));
         lblRLq.setText(String.valueOf(pfcm.ClientesLq(Double.parseDouble(txtRServidores.getText()),Double.parseDouble(txtRPoblacion.getText()),Double.parseDouble(txtRMu.getText()),Double.parseDouble(txtRLambda.getText()))));
         lblRLn.setText(String.valueOf(pfcm.ClientesLn(Double.parseDouble(txtRServidores.getText()),Double.parseDouble(txtRPoblacion.getText()),Double.parseDouble(txtRMu.getText()),Double.parseDouble(txtRLambda.getText()))));
@@ -534,8 +536,7 @@ public class pnlPFCM extends javax.swing.JPanel {
             lblRPnCola.setText(String.valueOf(pfcm.AlmNClientesCola(Double.parseDouble(txtn.getText()),Double.parseDouble(txtRServidores.getText()),Double.parseDouble(txtRPoblacion.getText()),Double.parseDouble(txtRMu.getText()),Double.parseDouble(txtRLambda.getText()))));
         }
         
-        lblRPe.setText(String.valueOf(pfcm.ProbEsperar(Double.parseDouble(txtn.getText()),Double.parseDouble(txtRServidores.getText()),Double.parseDouble(txtRPoblacion.getText()),Double.parseDouble(txtRMu.getText()),Double.parseDouble(txtRLambda.getText()))));
-        lblRPne.setText(String.valueOf(pfcm.ProbNoEsperar(Double.parseDouble(txtn.getText()),Double.parseDouble(txtRServidores.getText()),Double.parseDouble(txtRPoblacion.getText()),Double.parseDouble(txtRMu.getText()),Double.parseDouble(txtRLambda.getText()))));
+        
 
     }//GEN-LAST:event_btnCalcularActionPerformed
 
