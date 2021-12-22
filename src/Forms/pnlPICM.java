@@ -513,17 +513,17 @@ public class pnlPICM extends javax.swing.JPanel {
         PICM picm = new PICM();
         PICS pics = new PICS();
         if("Exactamente".equals((String)cbOpcion.getSelectedItem())){
-            lblRPnSis.setText(String.valueOf(picm.ExacClienSis(Double.parseDouble(txtRLambda.getText()),Double.parseDouble(txtRMu.getText()), Double.parseDouble(txtRServidores.getText()),Double.parseDouble(txtn.getText()))));
+            //lblRPnSis.setText(String.valueOf(picm.ExacClienSis(Double.parseDouble(txtRLambda.getText()),Double.parseDouble(txtRMu.getText()), Double.parseDouble(txtRServidores.getText()),Double.parseDouble(txtn.getText()))));
             lblRPnCola.setText(String.valueOf(pics.NclientesExacCola(Double.parseDouble(txtRLambda.getText()),Double.parseDouble(txtRMu.getText()),Double.parseDouble(txtn.getText()))));
         }
 
         if("Máximo".equals((String)cbOpcion.getSelectedItem())){
-            lblRPnSis.setText(String.valueOf(picm.MaxClienSis(Double.parseDouble(txtRLambda.getText()),Double.parseDouble(txtRMu.getText()), Double.parseDouble(txtRServidores.getText()),Double.parseDouble(txtn.getText()))));
+            //lblRPnSis.setText(String.valueOf(picm.MaxClienSis(Double.parseDouble(txtRLambda.getText()),Double.parseDouble(txtRMu.getText()), Double.parseDouble(txtRServidores.getText()),Double.parseDouble(txtn.getText()))));
             lblRPnCola.setText(String.valueOf(pics.NclienteMaxCola(Double.parseDouble(txtRLambda.getText()),Double.parseDouble(txtRMu.getText()),Double.parseDouble(txtn.getText()))));
         }
 
         if("Almenos".equals((String)cbOpcion.getSelectedItem())){
-            lblRPnSis.setText(String.valueOf(picm.AlClienSis(Double.parseDouble(txtRLambda.getText()),Double.parseDouble(txtRMu.getText()),Double.parseDouble(txtRServidores.getText()),Double.parseDouble(txtn.getText()))));
+            //lblRPnSis.setText(String.valueOf(picm.AlClienSis(Double.parseDouble(txtRLambda.getText()),Double.parseDouble(txtRMu.getText()),Double.parseDouble(txtRServidores.getText()),Double.parseDouble(txtn.getText()))));
             lblRPnCola.setText(String.valueOf(pics.NclientesAlCola(Double.parseDouble(txtRLambda.getText()),Double.parseDouble(txtRMu.getText()),Double.parseDouble(txtn.getText()))));
         }
     }//GEN-LAST:event_btnCalcularActionPerformed

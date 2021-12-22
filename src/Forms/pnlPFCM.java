@@ -54,6 +54,10 @@ public class pnlPFCM extends javax.swing.JPanel {
         lblPnCola = new javax.swing.JLabel();
         lblSistema = new javax.swing.JLabel();
         lblCola = new javax.swing.JLabel();
+        lblPe = new javax.swing.JLabel();
+        lblRPe = new javax.swing.JLabel();
+        lblRPne = new javax.swing.JLabel();
+        lblPne = new javax.swing.JLabel();
         pnlClientes = new javax.swing.JPanel();
         lblL = new javax.swing.JLabel();
         lblRL = new javax.swing.JLabel();
@@ -217,6 +221,18 @@ public class pnlPFCM extends javax.swing.JPanel {
         lblCola.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblCola.setText("Cola:");
 
+        lblPe.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
+        lblPe.setText("Pe = ");
+
+        lblRPe.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblRPe.setText("Respuesta");
+
+        lblRPne.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblRPne.setText("Respuesta");
+
+        lblPne.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
+        lblPne.setText("Pne = ");
+
         javax.swing.GroupLayout pnlPnLayout = new javax.swing.GroupLayout(pnlPn);
         pnlPn.setLayout(pnlPnLayout);
         pnlPnLayout.setHorizontalGroup(
@@ -233,26 +249,39 @@ public class pnlPFCM extends javax.swing.JPanel {
                         .addComponent(btnCalcular)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlPnLayout.createSequentialGroup()
-                .addGap(0, 10, Short.MAX_VALUE)
-                .addGroup(pnlPnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(pnlPnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlPnLayout.createSequentialGroup()
-                        .addComponent(lblCola)
-                        .addGap(18, 18, 18)
-                        .addComponent(lblPnCola)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblRPnCola))
+                        .addGap(0, 10, Short.MAX_VALUE)
+                        .addGroup(pnlPnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(pnlPnLayout.createSequentialGroup()
+                                .addComponent(lblSistema)
+                                .addGap(18, 18, 18)
+                                .addComponent(lblPnSis)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblRPnSis))
+                            .addGroup(pnlPnLayout.createSequentialGroup()
+                                .addComponent(cbOpcion, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(lbln)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtn, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(pnlPnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlPnLayout.createSequentialGroup()
+                                    .addComponent(lblCola)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(lblPnCola)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(lblRPnCola))
+                                .addGroup(pnlPnLayout.createSequentialGroup()
+                                    .addComponent(lblPe)
+                                    .addGap(26, 26, 26)
+                                    .addGroup(pnlPnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(lblRPne)
+                                        .addComponent(lblRPe))))))
                     .addGroup(pnlPnLayout.createSequentialGroup()
-                        .addComponent(lblSistema)
-                        .addGap(18, 18, 18)
-                        .addComponent(lblPnSis)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblRPnSis))
-                    .addGroup(pnlPnLayout.createSequentialGroup()
-                        .addComponent(cbOpcion, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(lbln)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtn, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(40, 40, 40)
+                        .addComponent(lblPne)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(26, 26, 26))
         );
         pnlPnLayout.setVerticalGroup(
@@ -274,12 +303,20 @@ public class pnlPFCM extends javax.swing.JPanel {
                     .addComponent(lblPnSis)
                     .addComponent(lblRPnSis)
                     .addComponent(lblSistema))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(pnlPnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblPnCola)
                     .addComponent(lblRPnCola)
                     .addComponent(lblCola))
-                .addGap(26, 26, 26))
+                .addGap(31, 31, 31)
+                .addGroup(pnlPnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblPe)
+                    .addComponent(lblRPe))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pnlPnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblPne)
+                    .addComponent(lblRPne))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pnlClientes.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Clientes (L)", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 14), new java.awt.Color(102, 153, 255))); // NOI18N
@@ -453,18 +490,17 @@ public class pnlPFCM extends javax.swing.JPanel {
     private void btnCalcularGActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcularGActionPerformed
         // TODO add your handling code here:
         PFCM pfcm = new PFCM();
-        PFCS pfcs = new PFCS();
         lblRP0.setText(String.valueOf(pfcm.SistemaVacio(Double.parseDouble(txtRServidores.getText()),Double.parseDouble(txtRPoblacion.getText()),Double.parseDouble(txtRMu.getText()),Double.parseDouble(txtRLambda.getText()))));
 
                  //CLIENTES
-        lblRL.setText(String.valueOf(pfcs.ClientesL(Double.parseDouble(txtRPoblacion.getText()),Double.parseDouble(txtRLambda.getText()),Double.parseDouble(txtRMu.getText()))));
-        lblRLq.setText(String.valueOf(pfcs.ClientesColaLq(Double.parseDouble(txtRPoblacion.getText()),Double.parseDouble(txtRLambda.getText()),Double.parseDouble(txtRMu.getText()))));
-        lblRLn.setText(String.valueOf(pfcs.ClientesLn(Double.parseDouble(txtRPoblacion.getText()),Double.parseDouble(txtRLambda.getText()),Double.parseDouble(txtRMu.getText()))));
+        lblRL.setText(String.valueOf(pfcm.ClientesL(Double.parseDouble(txtRServidores.getText()),Double.parseDouble(txtRPoblacion.getText()),Double.parseDouble(txtRMu.getText()),Double.parseDouble(txtRLambda.getText()))));
+        lblRLq.setText(String.valueOf(pfcm.ClientesLq(Double.parseDouble(txtRServidores.getText()),Double.parseDouble(txtRPoblacion.getText()),Double.parseDouble(txtRMu.getText()),Double.parseDouble(txtRLambda.getText()))));
+        lblRLn.setText(String.valueOf(pfcm.ClientesLn(Double.parseDouble(txtRServidores.getText()),Double.parseDouble(txtRPoblacion.getText()),Double.parseDouble(txtRMu.getText()),Double.parseDouble(txtRLambda.getText()))));
 
         //TIEMPO
-        lblRW.setText(String.valueOf(pfcs.TiempoW(Double.parseDouble(txtRPoblacion.getText()),Double.parseDouble(txtRLambda.getText()),Double.parseDouble(txtRMu.getText()))));
-        lblRWq.setText(String.valueOf(pfcs.TiempoWq(Double.parseDouble(txtRPoblacion.getText()),Double.parseDouble(txtRLambda.getText()),Double.parseDouble(txtRMu.getText()))));
-        lblRWn.setText(String.valueOf(pfcs.TiempoWn(Double.parseDouble(txtRPoblacion.getText()),Double.parseDouble(txtRLambda.getText()),Double.parseDouble(txtRMu.getText()))));
+        lblRW.setText(String.valueOf(pfcm.TiempoW(Double.parseDouble(txtRServidores.getText()),Double.parseDouble(txtRPoblacion.getText()),Double.parseDouble(txtRMu.getText()),Double.parseDouble(txtRLambda.getText()))));
+        lblRWq.setText(String.valueOf(pfcm.TiempoWq(Double.parseDouble(txtRServidores.getText()),Double.parseDouble(txtRPoblacion.getText()),Double.parseDouble(txtRMu.getText()),Double.parseDouble(txtRLambda.getText()))));
+        lblRWn.setText(String.valueOf(pfcm.TiempoWn(Double.parseDouble(txtRServidores.getText()),Double.parseDouble(txtRPoblacion.getText()),Double.parseDouble(txtRMu.getText()),Double.parseDouble(txtRLambda.getText()))));
     }//GEN-LAST:event_btnCalcularGActionPerformed
 
     private void txtRLambdaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRLambdaActionPerformed
@@ -482,21 +518,25 @@ public class pnlPFCM extends javax.swing.JPanel {
 
     private void btnCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcularActionPerformed
         PFCM pfcm = new PFCM();
-        PFCS pfcs = new PFCS();
+        
         if("Exactamente".equals((String)cbOpcion.getSelectedItem())){
-            lblRPnSis.setText(String.valueOf(pfcs.NclientExac(Double.parseDouble(txtn.getText()),Double.parseDouble(txtRPoblacion.getText()), Double.parseDouble(txtRMu.getText()),Double.parseDouble(txtRLambda.getText()))));
-            lblRPnCola.setText(String.valueOf(pfcs.NclientExacCola(Double.parseDouble(txtn.getText()),Double.parseDouble(txtRPoblacion.getText()), Double.parseDouble(txtRMu.getText()),Double.parseDouble(txtRLambda.getText()))));
+            lblRPnSis.setText(String.valueOf(pfcm.ExacNClientesSis(Double.parseDouble(txtn.getText()),Double.parseDouble(txtRServidores.getText()),Double.parseDouble(txtRPoblacion.getText()),Double.parseDouble(txtRMu.getText()),Double.parseDouble(txtRLambda.getText()))));
+            lblRPnCola.setText(String.valueOf(pfcm.ExacNClientesCola(Double.parseDouble(txtn.getText()),Double.parseDouble(txtRServidores.getText()),Double.parseDouble(txtRPoblacion.getText()),Double.parseDouble(txtRMu.getText()),Double.parseDouble(txtRLambda.getText()))));
         }
 
         if("Máximo".equals((String)cbOpcion.getSelectedItem())){
-            lblRPnSis.setText(String.valueOf(pfcs.NclientMax(Double.parseDouble(txtn.getText()),Double.parseDouble(txtRPoblacion.getText()), Double.parseDouble(txtRMu.getText()),Double.parseDouble(txtRLambda.getText()))));
-            lblRPnCola.setText(String.valueOf(pfcs.NclientMaxCola(Double.parseDouble(txtn.getText()),Double.parseDouble(txtRPoblacion.getText()), Double.parseDouble(txtRMu.getText()),Double.parseDouble(txtRLambda.getText()))));
+            lblRPnSis.setText(String.valueOf(pfcm.MaxNClientesSis(Double.parseDouble(txtn.getText()),Double.parseDouble(txtRServidores.getText()),Double.parseDouble(txtRPoblacion.getText()),Double.parseDouble(txtRMu.getText()),Double.parseDouble(txtRLambda.getText()))));
+            lblRPnCola.setText(String.valueOf(pfcm.MaxNClientesCola(Double.parseDouble(txtn.getText()),Double.parseDouble(txtRServidores.getText()),Double.parseDouble(txtRPoblacion.getText()),Double.parseDouble(txtRMu.getText()),Double.parseDouble(txtRLambda.getText()))));
         }
 
         if("Almenos".equals((String)cbOpcion.getSelectedItem())){
-            lblRPnSis.setText(String.valueOf(pfcs.NclientAL(Double.parseDouble(txtn.getText()),Double.parseDouble(txtRPoblacion.getText()), Double.parseDouble(txtRMu.getText()),Double.parseDouble(txtRLambda.getText()))));
-            lblRPnCola.setText(String.valueOf(pfcs.NclientALCola(Double.parseDouble(txtn.getText()),Double.parseDouble(txtRPoblacion.getText()), Double.parseDouble(txtRMu.getText()),Double.parseDouble(txtRLambda.getText()))));
+            lblRPnSis.setText(String.valueOf(pfcm.AlmNClientesSis(Double.parseDouble(txtn.getText()),Double.parseDouble(txtRServidores.getText()),Double.parseDouble(txtRPoblacion.getText()),Double.parseDouble(txtRMu.getText()),Double.parseDouble(txtRLambda.getText()))));
+            lblRPnCola.setText(String.valueOf(pfcm.AlmNClientesCola(Double.parseDouble(txtn.getText()),Double.parseDouble(txtRServidores.getText()),Double.parseDouble(txtRPoblacion.getText()),Double.parseDouble(txtRMu.getText()),Double.parseDouble(txtRLambda.getText()))));
         }
+        
+        lblRPe.setText(String.valueOf(pfcm.ProbEsperar(Double.parseDouble(txtn.getText()),Double.parseDouble(txtRServidores.getText()),Double.parseDouble(txtRPoblacion.getText()),Double.parseDouble(txtRMu.getText()),Double.parseDouble(txtRLambda.getText()))));
+        lblRPne.setText(String.valueOf(pfcm.ProbNoEsperar(Double.parseDouble(txtn.getText()),Double.parseDouble(txtRServidores.getText()),Double.parseDouble(txtRPoblacion.getText()),Double.parseDouble(txtRMu.getText()),Double.parseDouble(txtRLambda.getText()))));
+
     }//GEN-LAST:event_btnCalcularActionPerformed
 
     public void LimpiarCampos(){
@@ -529,15 +569,19 @@ public class pnlPFCM extends javax.swing.JPanel {
     private javax.swing.JLabel lblLq;
     private javax.swing.JLabel lblMu;
     private javax.swing.JLabel lblP0;
+    private javax.swing.JLabel lblPe;
     private javax.swing.JLabel lblPnCola;
     private javax.swing.JLabel lblPnSis;
+    private javax.swing.JLabel lblPne;
     private javax.swing.JLabel lblPoblacion;
     private javax.swing.JLabel lblRL;
     private javax.swing.JLabel lblRLn;
     private javax.swing.JLabel lblRLq;
     private javax.swing.JLabel lblRP0;
+    private javax.swing.JLabel lblRPe;
     private javax.swing.JLabel lblRPnCola;
     private javax.swing.JLabel lblRPnSis;
+    private javax.swing.JLabel lblRPne;
     private javax.swing.JLabel lblRW;
     private javax.swing.JLabel lblRWn;
     private javax.swing.JLabel lblRWq;
